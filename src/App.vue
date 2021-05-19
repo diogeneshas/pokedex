@@ -1,11 +1,16 @@
 <template>
   <div id="app">
-
+    <div v-for="(pokemon,index) in pokemons" v-bind:key="index">
+      <Pokemon v-bind:name="pokemon.name" v-bind:url="pokemon.url" v-bind:num="index + 1"/>
+    </div>
   </div>
 </template>
 
 <script>
+
 import axios from 'axios'
+import Pokemon from './components/Pokemon'
+
 export default {
   name: 'App',
   data(){
@@ -20,6 +25,7 @@ export default {
     })
   },
   components: {
+    Pokemon
     
   }
 }
